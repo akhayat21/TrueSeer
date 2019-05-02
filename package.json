@@ -1,0 +1,22 @@
+{
+  "name": "trueseer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "cd client && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svengia25/TrueSeer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svengia25/TrueSeer/issues"
+  },
+  "homepage": "https://github.com/svengia25/TrueSeer#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
