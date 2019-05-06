@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "cd client && npm run start"
+    "start": "node server.js && cd client && npm run start"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/svengia25/TrueSeer#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "bcrypt-nodejs": "0.0.3",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.8.3"
   }
 }
