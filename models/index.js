@@ -34,4 +34,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-console.log(db);
+// console.log(db);
+
+
