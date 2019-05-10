@@ -1,5 +1,6 @@
 import React from "react";
-import './Header.css'
+import './Header.css';
+import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
@@ -13,7 +14,9 @@ export class Header extends React.Component {
     <Nav className="mr-auto">
       <Nav.Link href="/">Home</Nav.Link>
     </Nav>
-      <Nav.Link href="login" className="waves-effect waves-#ff9800 orange btn-small" >Get Started  <i className="fas fa-play-circle"></i></Nav.Link>
+    <Link to={'./login'}>
+      <button className="waves-effect waves-#ff9800 orange btn-small" >Get Started  <i className="fas fa-play-circle"></i></button>
+      </Link>
 </Navbar>
 </div>
         );

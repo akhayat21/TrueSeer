@@ -1,5 +1,6 @@
 import React from "react";
-import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
+
 export class NameForm extends React.Component {
     constructor(props) {
       super(props);
@@ -39,7 +40,9 @@ export class NameForm extends React.Component {
                 onChange={this.handleInputChange} />
             </label>
             <br></br>
-            <Nav.Link href="dashboard" className="waves-effect waves-#ff9800 green btn-small" >Login</Nav.Link>
+            <Link to={'./Dashboard'}>
+      <button className="waves-effect waves-#ff9800 green btn-small" >Get Started  <i className="fas fa-play-circle"></i></button>
+      </Link>
           </form>
         );
       }
