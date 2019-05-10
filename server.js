@@ -20,9 +20,16 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 // app.use(passport.session());
 
 app.get('/api/getList', (req,res) => {
-  var list = ["item1", "item2", "item3"];
+  var list = [
+    "TeamA: ENCE",
+    "TeamB: Natus Vincere",
+    "Map: Mirage",
+    "TeamAOdds: 2.08",
+    "TeamBOdds: 1.72",
+    "TeamAMapWinPerc: 78%",
+    "TeamBMapWinPerc: 67%"
+  ]
   res.json(list);
-  console.log('Sent list of items');
 });
 
 // Requiring our routes
