@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Header } from '../components/Header/Header.js'
 
 class Home extends Component {
   render() {
     return (
+        
     <div className="App">
+    <Header></Header>
+    <br></br>
+    <br></br>
       <h1>Project Home</h1>
-      {/* Link to List.js */}
-      <Link to={'./list'}>
-        <button variant="raised">
-            My List
-        </button>
-      </Link>
     </div>
     );
   }
