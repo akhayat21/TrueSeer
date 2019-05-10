@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNULL: false
         },
         result: {
-            type: DataTypes.boolean,
+            type: DataTypes.BOOLEAN,
             allowNULL: true
         }
     })

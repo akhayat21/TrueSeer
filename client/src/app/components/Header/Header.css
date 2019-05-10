@@ -1,0 +1,16 @@
+.navbarcont {
+position: fixed;
+width: 95%;
+top: 2%;
+left: 2.5%;
+}
+
+.navbar {
+    border-radius: 20px;
+}
+
+/* .button{
+    float: right;
+    border-radius: 50px;
+    align-content: center;
+} */
