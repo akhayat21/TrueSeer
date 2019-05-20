@@ -26,6 +26,5 @@ module.exports = function(sequelize, DataTypes) {
             allowNULL: true
         }
     })
-
     return Game;
 }
