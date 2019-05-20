@@ -27,6 +27,7 @@ app.get('/api/getList', (req,res) => {
 // Requiring our routes
 // require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/scrape.js")(app);
 const port = process.env.PORT || 5000;
 app.listen(port);
 // Syncing our database and logging a message to the user upon success
