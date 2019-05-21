@@ -19,15 +19,11 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/api/getList', (req,res) => {
-
-  res.json(list);
-});
 
 // Requiring our routes
 // require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
-require("./routes/scrape.js")(app);
+require("./routes/game.js")(app);
 const port = process.env.PORT || 5000;
 app.listen(port);
 // Syncing our database and logging a message to the user upon success

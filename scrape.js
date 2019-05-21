@@ -2,36 +2,28 @@ const cheerio = require("cheerio");
 const fs = require('file-system');
 const request = require("request");
  
-var options = { method: 'GET',
-  url: 'https://www.hltv.org/matches/2332961/cloud9-vs-infinity-esl-pro-league-season-9-americas',
-};
+// var options = { method: 'GET',
+//   url: 'https://www.hltv.org/matches/2332980/order-vs-chiefs-esl-pro-league-season-9-asia',
+// };
  
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-  fs.writeFile('hltv.html',body)
-})
-var odds = []
-var teamAodds = 0;
-var teamBodds = 0;
+// request(options, function (error, response, body) {
+//   if (error) throw new   Error(error);
+//   fs.writeFile('hltv2.html',body)
+// })
+
 function HTLVscrape(){
-    var $ = cheerio.load(fs.readFileSync('hltv.html'));
-    var teamA = $(".team").children(".team1-gradient").children(".teamName").text().trim();
-$(".betting_provider").children(".odds-cell").each(function(){
-odds.push($(this).text())
-})
-j=0;
-for(let i=0; i<odds.length;i++){
-teamAodds += parseInt(odds[i]);
-i++;
-i++;
-teamBodds += parseInt(odds[i]);
-j++;
-}   
-    teamAodds /= j
-    teamBodds /= j
-    teamBodds = teamBodds.toFixed(2);
-    var time = $(".time").attr("data-unix")
-    console.log(teamA)
+    var $ = cheerio.load(fs.readFileSync('hltv.html')); 
+    var maplist = [];   
+    $(".map-stats-infobox-maps").children(".map-stats-infobox-mapname-container").children(".map-stats-infobox-mapname-holder").children(".mapname").each(function(){
+        maplist.push($(this).text())
+    })
+    var winlist = [];
+    $(".map-stats-infobox-winpercentage").each(function (){
+        winlist.push($(this).text())
+    })
+    console.log(maplist.toString())
+    console.log(winlist.toString())
+    
 }
 
 HTLVscrape()
