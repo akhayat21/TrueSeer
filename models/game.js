@@ -17,6 +17,22 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNULL: false
         },
+        teamAImg: {
+            type: DataTypes.STRING,
+            allowNULL: false
+        },
+        teamBImg: {
+            type: DataTypes.STRING,
+            allowNULL: false
+        },
+        teamAFlag: {
+            type: DataTypes.STRING,
+            allowNULL: false
+        },
+        teamBFlag: {
+            type: DataTypes.STRING,
+            allowNULL: false
+        },
         teamAOdds: {
             type: DataTypes.FLOAT,
             allowNULL: false

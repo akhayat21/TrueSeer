@@ -65,10 +65,45 @@ module.exports = function (app) {
             var teamBprob = 0;
             for (let j = 0; j < 7; j++) {
                 arr.push(winlist[j])
-                if (winlist[7 + count] == '-' || winlist[8 + count] == '-') {
-                    arr.push("Not Enough Info")
-                    arr.push("Not Enough Info")
-                } else {
+                if (winlist[7 + count] == '-' && winlist[8 + count] != '-') {
+                    var temp = 0
+                    var temp2 = 100 - temp;
+                    var temp3 = parseInt(winlist[8 + count].replace(/\%/g, '/'))
+                    var temp4 = 100 - temp3
+                    var temp5 = (temp + temp4) / 2
+                    var temp6 = (temp3 + temp2) / 2
+                    arr.push(temp5)
+                    arr.push(temp6)
+                    teamAprob += temp5
+                    teamBprob += temp6
+                    countTwo++;
+                } else if (winlist[7 + count] != '-' && winlist[8 + count] == '-') {
+                    var temp = parseInt(winlist[7 + count].replace(/\%/g, '/'))
+                    var temp2 = 100 - temp;
+                    var temp3 = 0
+                    var temp4 = 100 - temp3
+                    var temp5 = (temp + temp4) / 2
+                    var temp6 = (temp3 + temp2) / 2
+                    arr.push(temp5)
+                    arr.push(temp6)
+                    teamAprob += temp5
+                    teamBprob += temp6
+                    countTwo++;
+                } else if (winlist[7 + count] == '-' && winlist[8 + count] == '-') {
+                    var temp = 25
+                    var temp2 = 100 - temp;
+                    var temp3 = 25
+                    var temp4 = 100 - temp3
+                    var temp5 = (temp + temp4) / 2
+                    var temp6 = (temp3 + temp2) / 2
+                    arr.push(temp5)
+                    arr.push(temp6)
+                    teamAprob += temp5
+                    teamBprob += temp6
+                    countTwo++;
+                }
+                
+                else {
                     winlist[7 + count] = parseInt(winlist[7 + count].replace(/\%/g, '/'))
                     winlist[8 + count] = parseInt(winlist[8 + count].replace(/\%/g, '/'))
                     var temp = winlist[7 + count];
@@ -95,12 +130,12 @@ module.exports = function (app) {
             var t5 = (t1 + t4) / 2
             var t6 = (t2 + t3) / 2
             console.log("t5", t5)
-            // console.log("t6", t6)
+            console.log("t6", t6)
             arr = arr.toString()
             var betSize = 0;
             var betTeam = "";
             if (parseInt(t5) > parseInt(tem5)) {
-                betTeam = "TeamA";
+                betTeam = teamA;
                 var diff = parseInt(t5) - parseInt(tem5)
                 console.log(diff)
                 switch (true) {
@@ -118,7 +153,7 @@ module.exports = function (app) {
                         break;
                 }
             } else if (parseInt(t5) < parseInt(tem5)) {
-                betTeam = "TeamB";
+                betTeam = teamB;
                 var diff = parseInt(tem5) - parseInt(t5) 
                 console.log(diff)
                 switch (true) {
@@ -136,20 +171,30 @@ module.exports = function (app) {
                         break;
                 }
             }
+
+            teamAImg = $(".team").children(".team1-gradient").children("a").children("img").attr("src")
+            teamBImg = $(".team").children(".team2-gradient").children("a").children("img").attr("src")
+            teamAFlag = $(".team").children(".team1").attr("src")
+            teamBFlag = $(".team").children(".team2").attr("src")
+            console.log(t5)
             db.Game.create({
                 gameDate: time,
                 gameLink: req.body.url,
                 teamA: teamA,
                 teamB: teamB,
+                teamAImg: teamAImg,
+                teamBImg: teamBImg,
+                teamAFlag: teamAFlag,
+                teamBFlag: teamBFlag,
                 WinList: arr,
-                teamAImpOdds: tem5,
-                teamBImpOdds: tem6,
-                teamACalcOdds: t5,
-                teamBCalcOdds: t6,
+                teamAImpOdds: tem5.toFixed(2),
+                teamBImpOdds: tem6.toFixed(2),
+                teamACalcOdds: t5.toFixed(2),
+                teamBCalcOdds: t6.toFixed(2),
                 betSize: betSize,
                 betTeam: betTeam,
-                teamAOdds: teamAodds,
-                teamBOdds: teamBodds
+                teamAOdds: teamAodds.toFixed(2),
+                teamBOdds: teamBodds.toFixed(2)
             }).then(function (dbmatches) {
                 res.json(dbmatches)
             })
@@ -194,4 +239,16 @@ module.exports = function (app) {
             res.json(games)
         });
     });
+
+    app.delete("/api/match/:id", function(req, res) {
+        db.Game.destroy({
+          where: {
+            id: req.params.id
+          }
+        }).then(function(games) {
+          res.json(games);
+        }).catch(function (error) {
+            console.log(error.response);
+       });
+      });
 }

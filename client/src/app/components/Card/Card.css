@@ -1,5 +1,65 @@
-img {
-    height: 100px;
-    /* width: 100%; */
+.csgocard {
+    height: 175px;
+    border-radius: 100px;
+}   
+
+.csgocontainer {
+    background-color: #263238;
+    color: #e0e0e0;   
+    font-family: 'Bree Serif', serif;
 }
 
+img {
+    width: 100%;
+    height: 175px;
+}
+
+.imgcontainer{
+    object-fit: cover;
+    position: relative;
+    border-radius: 100px;
+
+}
+
+.logo1{
+    position: absolute;
+    margin: 0px,0px,0px,15px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.logo2{
+    position: absolute;
+    padding: 2px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.flag1{
+    position: absolute;
+    -webkit-mask-image: -webkit-gradient(linear, left top, right top, 
+    from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    opacity: 0.65;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.flag2{
+    position: absolute;
+    -webkit-mask-image: -webkit-gradient(linear, right top, left top, 
+    from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    opacity: 0.65;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .fa-window-close{
+      float: right;
+  }
+  
+  .redbutton{
+      background-color: red;
+  }

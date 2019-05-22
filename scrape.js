@@ -13,16 +13,8 @@ const request = require("request");
 
 function HTLVscrape(){
     var $ = cheerio.load(fs.readFileSync('hltv.html')); 
-    var maplist = [];   
-    $(".map-stats-infobox-maps").children(".map-stats-infobox-mapname-container").children(".map-stats-infobox-mapname-holder").children(".mapname").each(function(){
-        maplist.push($(this).text())
-    })
-    var winlist = [];
-    $(".map-stats-infobox-winpercentage").each(function (){
-        winlist.push($(this).text())
-    })
-    console.log(maplist.toString())
-    console.log(winlist.toString())
+    teamBImg = $(".team").children(".team2").attr("src")
+    console.log(teamBImg)
     
 }
 

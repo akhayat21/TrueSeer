@@ -32,15 +32,17 @@
 
 //     console.log(arr)
 
-var val = 9;
-switch (true) {
-    case (val < 5):
-        console.log("1")
-        break;
-    case (val > 5 && val < 10):
-        console.log("2")
-        break;
-    case (val > 10 && val < 20):
-        console.log("3")
-        break;
-}
+// var val = 9;
+// switch (true) {
+//     case (val < 5):
+//         console.log("1")
+//         break;
+//     case (val > 5 && val < 10):
+//         console.log("2")
+//         break;
+//     case (val > 10 && val < 20):
+//         console.log("3")
+//         break;
+// }
+
+console.log(new Date(1558490400000))

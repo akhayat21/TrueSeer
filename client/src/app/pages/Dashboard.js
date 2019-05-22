@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Card} from '../components/Card/Card.js'
+import './Dashboard.css';
+import { Card } from '../components/Card/Card.js'
+import { Addbutton } from '../components/AddButton/Addbutton'
 
 class List extends Component {
   // Initialize the state
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       data: []
@@ -31,7 +33,7 @@ class List extends Component {
         console.log(res)
         var data = res.data
         this.setState({
-          data: data.slice(0,data.length)
+          data: data.slice(0, data.length)
         })
         // var gameDate = [];
         // for( let i=(data.length-1); i>-1; i--){
@@ -50,7 +52,7 @@ class List extends Component {
         //   teamA.push(JSON.stringify(data[i].teamA).split('"').join(''))
         // }
         // this.setState({ teamA });
-        
+
         // var teamB = [];
         // for( let i=(data.length-1); i>-1; i--){
         //   teamB.push(JSON.stringify(data[i].teamB).split('"').join(''))
@@ -62,7 +64,7 @@ class List extends Component {
         //   teamAImg.push(JSON.stringify(data[i].teamA).split('"').join(''))
         // }
         // this.setState({ teamAImg });
-        
+
         // var teamBImg = [];
         // for( let i=(data.length-1); i>-1; i--){
         //   teamBImg.push(JSON.stringify(data[i].teamB).split('"').join(''))
@@ -74,19 +76,19 @@ class List extends Component {
         //   teamAOdds.push(JSON.stringify(data[i].teamAOdds).split('"').join(''))
         // }
         // this.setState({ teamAOdds });
-        
+
         // var teamBOdds = [];
         // for( let i=(data.length-1); i>-1; i--){
         //   teamBOdds.push(JSON.stringify(data[i].teamBOdds).split('"').join(''))
         // }
         // this.setState({ teamBOdds });
-        
+
         // var teamAImpOdds = [];
         // for( let i=(data.length-1); i>-1; i--){
         //   teamAImpOdds.push(JSON.stringify(data[i].teamAImpOdds.toFixed(2)).split('"').join(''))
         // }
         // this.setState({ teamAImpOdds });
-        
+
         // var teamBImpOdds = [];
         // for( let i=(data.length-1); i>-1; i--){
         //   teamBImpOdds.push(JSON.stringify(data[i].teamBImpOdds.toFixed(2)).split('"').join(''))
@@ -98,7 +100,7 @@ class List extends Component {
         //   teamACalcOdds.push(JSON.stringify(data[i].teamACalcOdds.toFixed(2)).split('"').join(''))
         // }
         // this.setState({ teamACalcOdds });
-        
+
         // var teamBCalcOdds = [];
         // for( let i=(data.length-1); i>-1; i--){
         //   teamBCalcOdds.push(JSON.stringify(data[i].teamBCalcOdds.toFixed(2)).split('"').join(''))
@@ -118,9 +120,10 @@ class List extends Component {
         // this.setState({ betSize });
 
       });
+
   }
 
-  
+
   render() {
     // const { gameDate } = this.state;
     // const { gameLink } = this.state;
@@ -136,20 +139,28 @@ class List extends Component {
     // const { teamBCalcOdds } = this.state;
     // const { betTeam } = this.state;
     // const { betSize } = this.state;
-    
+
     return (
       <div className="App">
-        {this.state.data.map(item => <Card 
-        gameDate = { item.gameDate } gameLink = { item.gameLink }
-        teamA = { item.teamA } teamB = { item.teamB } 
-        teamAImg = { item.teamAImg } teamBImg = { item.teamBImg  } 
-        teamAOdds = { item.teamAOdds } teamBOdds = { item.teamBOdds  } 
-        teamAImpOdds = { item.teamAImpOdds } teamBImpOdds = { item.teamBImpOdds  } 
-        teamACalcOdds = { item.teamACalcOdds } teamBCalcOdds = { item.teamBCalcOdds  } 
-        betTeam = { item.betTeam } betSize = { item.betSize  } 
-         ></Card>)}
-        {/**/}
-        
+        <div className="row">
+        <div className="col s1 m1"></div>
+        <div className="col s2 m2"><Addbutton></Addbutton></div>
+        <div className="col s1 m1"></div>
+          <div className="col s7 m7">
+            {this.state.data.slice(0).reverse().map(item => <Card
+              id={item.id}
+              gameDate={new Date(parseInt(item.gameDate)).toString()} gameLink={item.gameLink}
+              teamA={item.teamA} teamB={item.teamB}
+              teamAImg={item.teamAImg} teamBImg={item.teamBImg}
+              teamAFlag={item.teamAFlag} teamBFlag={item.teamBFlag}
+              teamAOdds={item.teamAOdds} teamBOdds={item.teamBOdds}
+              teamAImpOdds={item.teamAImpOdds} teamBImpOdds={item.teamBImpOdds}
+              teamACalcOdds={item.teamACalcOdds} teamBCalcOdds={item.teamBCalcOdds}
+              betTeam={item.betTeam} betSize={item.betSize}
+            ></Card>)}
+          </div>
+          <div className="col s1 m1"></div>
+        </div>
       </div>
     );
   }
