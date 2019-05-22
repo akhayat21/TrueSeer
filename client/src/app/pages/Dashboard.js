@@ -28,6 +28,9 @@ class List extends Component {
   }
 
   componentDidMount() {
+
+  document.title = "TrueSeer"
+  
     axios.get(`/api/match`)
       .then(res => {
         console.log(res)
