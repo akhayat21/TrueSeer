@@ -3,7 +3,7 @@ const fs = require('file-system');
 const request = require("request");
  
 // var options = { method: 'GET',
-//   url: 'https://www.hltv.org/matches/2332980/order-vs-chiefs-esl-pro-league-season-9-asia',
+//   url: 'https://www.hltv.org/matches',
 // };
  
 // request(options, function (error, response, body) {
@@ -12,8 +12,11 @@ const request = require("request");
 // })
 
 function HTLVscrape(){
-    var $ = cheerio.load(fs.readFileSync('hltv.html')); 
-    teamBImg = $(".team").children(".team2").attr("src")
+    var $ = cheerio.load(fs.readFileSync('hltv2.html')); 
+    var teamBImg = [];
+    $(".upcoming-match.standard-box").each(function(element){
+        teamBImg.push($(element).text());
+    })
     console.log(teamBImg)
     
 }

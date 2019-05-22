@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// import './Addbutton.css';
+import './Addbutton.css';
 
 export class Addbutton extends React.Component {
     constructor(props) {
@@ -29,9 +29,9 @@ export class Addbutton extends React.Component {
         return (
             <div className="addbutton">
                 <form onSubmit={this.handleSubmit}>
-                    <label>
+                    <label className="title">
                         Game Link:
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
+                        <input className="input" type="text" value={this.state.value} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>

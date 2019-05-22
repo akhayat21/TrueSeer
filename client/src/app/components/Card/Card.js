@@ -47,7 +47,10 @@ export class Card extends React.Component {
                         </div>
                         <div className="col s2 m2">
                             <p>{this.props.gameDate}</p>
-                            <p>Bet {this.props.betSize}% of your bankroll on Team {this.props.betTeam}</p>
+                            <p>
+                                <strong>Recommonded Bet:</strong>
+                                <br></br>
+                                Bet {this.props.betSize}% of your bankroll on Team {this.props.betTeam}</p>
                         </div>
                         <div className="col s3 m3">
                             <p>{this.props.teamB}'s Chance to win</p>
