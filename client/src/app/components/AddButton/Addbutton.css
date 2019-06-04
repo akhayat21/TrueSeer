@@ -1,13 +1,26 @@
 .addbutton{
     padding-top: 100px;
     position: fixed; top: 0; left: 50px;
+    color: #e0e0e0;
 }
 
 .title{
     font-size: 34px;
+    color: #e0e0e0;
 }
 
 .input{
     width: 250px;
     color:#e0e0e0;
+}
+
+.instructions {
+    font-size: 34px;
+    color:#e0e0e0;
+}
+
+.inst{
+    width: 100%;
+    font-size: 16px;
+    text-align: justify;
 }

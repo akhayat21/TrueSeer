@@ -28,6 +28,7 @@ export class Addbutton extends React.Component {
     render() {
         return (
             <div className="addbutton">
+            <div className="addbutton">
                 <form onSubmit={this.handleSubmit}>
                     <label className="title">
                         Game Link:
@@ -35,6 +36,39 @@ export class Addbutton extends React.Component {
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
+                
+            </div>
+            <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                
+            <div className="header instructions">
+                    How to use TrueSeer  
+                <i class="material-icons">help</i>
+                <br></br>
+                <div className="inst">
+
+                    1)  Find a Link on HTLV.org to a match that you <br></br>would like to bet on
+                    <br></br>
+                    <br></br>
+                    2)  Submit the link in the form above to add it <br></br>betting list
+                    <br></br>
+                    <br></br>
+                    3)  A card will show up and provide information <br></br>
+                    about the average odds bookkeepers offer, and <br></br>
+                    TrueSeer will calculate the odds it thinks either <br></br>
+                    team has and will provide you with the models <br></br>
+                    recommended bet
+                    <br></br>
+                </div>
+            </div>
             </div>
         );
     }

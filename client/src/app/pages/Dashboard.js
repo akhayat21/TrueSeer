@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Dashboard.css';
 import { Card } from '../components/Card/Card.js'
 import { Addbutton } from '../components/AddButton/Addbutton'
+import moment from 'moment';
 
 class List extends Component {
   // Initialize the state
@@ -145,6 +146,16 @@ class List extends Component {
 
     return (
       <div className="App">
+        <nav className="blue-grey darken-1">
+    <div className="nav-wrapper blue-grey darken-1">
+      <img alt="logo" src="https://gamepedia.cursecdn.com/dota2_gamepedia/e/e3/Vacuum_icon.png?version=4a28c99ffe765f0e55d57a4e45f8988c" className="brand-logo z-depth-3"></img>
+      <h4>TrueSeer</h4>
+    </div>
+  </nav>
+  <br></br>
+  <br></br>
+  <br></br>
+        
         <div className="row">
         <div className="col s1 m1"></div>
         <div className="col s2 m2"><Addbutton></Addbutton></div>
@@ -152,7 +163,7 @@ class List extends Component {
           <div className="col s7 m7">
             {this.state.data.slice(0).reverse().map(item => <Card
               id={item.id}
-              gameDate={new Date(parseInt(item.gameDate)).toString()} gameLink={item.gameLink}
+              gameDate={moment.unix(parseInt(item.gameDate/1000)).format("MM/DD/YYYY HH:mm").toString()} gameLink={item.gameLink}
               teamA={item.teamA} teamB={item.teamB}
               teamAImg={item.teamAImg} teamBImg={item.teamBImg}
               teamAFlag={item.teamAFlag} teamBFlag={item.teamBFlag}
