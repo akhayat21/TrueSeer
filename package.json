@@ -10,7 +10,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svengia25/TrueSeer.git"
@@ -23,15 +22,15 @@
   "homepage": "https://github.com/svengia25/TrueSeer#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "cheerio": "^1.0.0-rc.3",
     "express": "^4.16.3",
     "express-session": "^1.14.2",
+    "file-system": "^2.2.2",
     "mysql2": "^1.6.4",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "sequelize": "^4.41.2",
-    "cheerio": "^1.0.0-rc.3",
-    "file-system": "^2.2.2",
     "request": "^2.88.0",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "sequelize": "^4.44.0"
   }
 }
